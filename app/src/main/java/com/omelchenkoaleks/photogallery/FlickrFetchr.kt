@@ -10,6 +10,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
+/**
+ * Простой репозиторий, который инкапсулирует логику доступа к данным.
+ * Определяет как получать и хранить набор данных.
+ * Код пользовательского интерфейса будет запрашивать все данные из репозитория, потому что
+ * ему неважно, как данные хранятся или извлекаются на самом деле.
+ */
+
 private const val TAG = "FlickrFetchr"
 
 class FlickrFetchr {
