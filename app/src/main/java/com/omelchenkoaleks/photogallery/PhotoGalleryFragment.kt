@@ -25,34 +25,37 @@ class PhotoGalleryFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         /**
-         * Собираем объект Retrofit
+         *
          */
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://www.flickr.com/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
+//        /**
+//         * Собираем объект Retrofit
+//         */
+//        val retrofit: Retrofit = Retrofit.Builder()
+//            .baseUrl("https://www.flickr.com/")
+//            .addConverterFactory(ScalarsConverterFactory.create())
+//            .build()
+//
+//        /**
+//         * Используем объект Retrofit для создания и реализации интерфейса FlickrApi
+//         */
+//        val flickrApi: FlickrApi = retrofit.create(FlickrApi::class.java)
 
-        /**
-         * Используем объект Retrofit для создания и реализации интерфейса FlickrApi
-         */
-        val flickrApi: FlickrApi = retrofit.create(FlickrApi::class.java)
-
-        /**
-         * Получение объекта Call, выполняющего запрос.
-         */
-        val flickrHomePageRequest: Call<String> = flickrApi.fetchContents()
-
-        flickrHomePageRequest.enqueue(object : Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e(TAG, "Failed to fetch photos", t)
-            }
-            override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
-            ) {
-                Log.d(TAG, "Response received: ${response.body()}")
-            }
-        })
+//        /**
+//         * Получение объекта Call, выполняющего запрос.
+//         */
+//        val flickrHomePageRequest: Call<String> = flickrApi.fetchContents()
+//
+//        flickrHomePageRequest.enqueue(object : Callback<String> {
+//            override fun onFailure(call: Call<String>, t: Throwable) {
+//                Log.e(TAG, "Failed to fetch photos", t)
+//            }
+//            override fun onResponse(
+//                call: Call<String>,
+//                response: Response<String>
+//            ) {
+//                Log.d(TAG, "Response received: ${response.body()}")
+//            }
+//        })
     }
 
     override fun onCreateView(
