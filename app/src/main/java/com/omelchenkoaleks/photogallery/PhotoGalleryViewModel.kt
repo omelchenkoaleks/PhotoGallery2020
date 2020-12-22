@@ -9,6 +9,6 @@ class PhotoGalleryViewModel : ViewModel() {
      * Свойство для хранения объекта "живых" данных -
      * содержит список элементов галереи.
      */
-    val galleryItemLiveData: LiveData<List<GalleryItem>> = FlickrFetchr().fetchPhotos()
+    val galleryItemLiveData: LiveData<List<GalleryItem>> = FlickrFetchr().searchPhotos("planet")
 
 }
