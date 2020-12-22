@@ -1,6 +1,7 @@
 package com.omelchenkoaleks.photogallery
 
 import android.content.Context
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
 /**
@@ -22,9 +23,9 @@ object QueryPreferences {
 
     fun setStoredQuery(context: Context, query: String) {
         PreferenceManager.getDefaultSharedPreferences(context)
-            .edit()
-            .putString(PREF_SEARCH_QUERY, query)
-            .apply()
+            .edit {
+                putString(PREF_SEARCH_QUERY, query)
+            }
     }
 
 }
