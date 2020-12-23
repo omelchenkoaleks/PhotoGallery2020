@@ -15,6 +15,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.Constraints
+import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 
@@ -42,11 +44,13 @@ class PhotoGalleryFragment : Fragment() {
             }
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
 
-        /**
-         * Создаем рабочий запрос и планируем его выполнение.
-         */
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.UNMETERED) // к сети без ограничения трафика
+            .build()
         val workRequest = OneTimeWorkRequest
             .Builder(PollWorker::class.java)
+            .setConstraints(constraints)
             .build()
         WorkManager.getInstance()
             .enqueue(workRequest)
