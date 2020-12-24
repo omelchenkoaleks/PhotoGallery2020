@@ -28,7 +28,7 @@
             android:name=".NotificationReceiver"
             android:exported="false"
             android:permission="com.omelchenkoaleks.photogallery.PRIVATE">
-            <intent-filter>
+            <intent-filter android:priority="-999">
                 <action android:name="com.omelchenkoaleks.photogallery.SHOW_NOTIFICATION" />
             </intent-filter>
         </receiver>
